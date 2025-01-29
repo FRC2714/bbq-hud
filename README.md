@@ -1,5 +1,5 @@
 # BBQ HUD
 
-Made with some react template.
+Used for Driver.
 
-- Nothing is done (we are slow)
+Using Vite & React
