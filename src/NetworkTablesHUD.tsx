@@ -37,8 +37,9 @@ const ReefHUD: React.FC = () => {
                 Connection Status: {connection}
             </p>
             <p className="current-stalk">Current Stalk: {currentStalkNumber ? currentStalkNumber : "No stalk identified"}</p>
-            {/* Pass currentStalkNumber as a prop to Hexagon */}
+            <h1 id='barge-text'>Barge</h1>
             <Hexagon currentStalkNumber={currentStalkNumber} />
+            <h1 id='driver-text'>Driver</h1>
         </>
     );
 };

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Numans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,6 +15,7 @@
 .connection-status {
   font-size: 1.2em;
   font-weight: bold;
+  font-family: Poppins;
 }
 
 .connected {
@@ -26,4 +28,26 @@
 
 .current-stalk {
   color: black;
+  font-weight: bold;
+  font-family: Poppins;
+}
+
+#barge-text {
+  color: black;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-left: 45%;
+  top: -2%;
+  position: absolute;
+  font-family: Poppins;
+}
+
+#driver-text {
+  color: black;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-left: 45.5%;
+  bottom: 2%;
+  position: absolute;
+  font-family: Poppins;
 }

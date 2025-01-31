@@ -3,9 +3,8 @@
     align-items: center;
     position: absolute;
     height: 100vh;
-    left:27.5%;
+    left:29%;
 }
-/* HTML: <div class="hexagon"></div> */
 .hexagon {
     --b: 50px; /* adjust to control the border  */
     height: 70%; /* adjust to control the size  */
@@ -71,6 +70,93 @@
     transform: rotate(60deg) translate(157.6%);
 }
 
+.l3 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(120deg) translateX(166%) translateY(-637%);
+}
+
+.r3 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(120deg) translateX(265%) translateY(-637%);
+}
+
+.l4 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(180deg) translateX(58%) translateY(-1273%);
+}
+
+.r4 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(180deg) translateX(157%) translateY(-1273%);
+}
+
+.l5 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(240deg) translateX(-157%) translateY(-1273%);
+}
+
+.r5 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(240deg) translateX(-58%) translateY(-1273%);
+}
+
+.l6 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(300deg) translateX(-265%) translateY(-636%);
+}
+
+.r6 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(300deg) translateX(-166%) translateY(-636%);
+}
 
 .active {
     background-color: mediumspringgreen;
