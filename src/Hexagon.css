@@ -1,0 +1,77 @@
+.hexagon-container {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100vh;
+    left:27.5%;
+}
+/* HTML: <div class="hexagon"></div> */
+.hexagon {
+    --b: 50px; /* adjust to control the border  */
+    height: 70%; /* adjust to control the size  */
+    aspect-ratio: 1/cos(30deg);
+    clip-path: 
+      polygon(0 50%,50% -50%,100% 50%,50% 150%,0 50%,
+      var(--b) 50%,
+      calc(25% + var(--b)*cos(60deg)) calc(100% - var(--b)*sin(60deg)),
+      calc(75% - var(--b)*cos(60deg)) calc(100% - var(--b)*sin(60deg)),
+      calc(100% - var(--b)) 50%,
+      calc(75% - var(--b)*cos(60deg)) calc(var(--b)*sin(60deg)),
+      calc(25% + var(--b)*cos(60deg)) calc(var(--b)*sin(60deg)),
+      var(--b) 50%);
+    background: #555;
+}
+
+/* Lines */
+
+.stalk {
+    border: none;
+    transition: background-color 0.15s ease;
+
+}
+.l1 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 28.6%;
+    background-color: transparent;
+    outline: none;
+}
+
+.r1 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 49.9%;
+    background-color: transparent;
+    outline: none;
+}
+
+.l2 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(60deg) translate(58%);
+}
+
+.r2 {
+    width: 21.5%;
+    position: absolute;
+    height: 5.1%;
+    top: 0%;
+    left: 62.43%;
+    background-color: transparent;
+    outline: none;
+    transform: rotate(60deg) translate(157.6%);
+}
+
+
+.active {
+    background-color: mediumspringgreen;
+}
