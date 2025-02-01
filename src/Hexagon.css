@@ -18,146 +18,50 @@
       calc(25% + var(--b)*cos(60deg)) calc(var(--b)*sin(60deg)),
       var(--b) 50%);
     background: #555;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 20px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* Lines */
 
 .stalk {
     border: none;
-    transition: background-color 0.125s ease;
-
 }
 
+.l1, .l2, .l3, .l4, .l5, .l6 { width: 20%; position: absolute; height: 8.2%; background-color: transparent; outline: none; }
 
-.l1 {
-    width: 20%;
-    position: absolute;
-    height: 8.1%;
-    top: 0%;
-    left: 30.789%;
-    background-color: transparent;
-    outline: none;
-}
+.r1, .r2, .r3, .r4, .r5, .r6 { width: 20%; position: absolute; height: 8.2%; background-color: transparent; outline: none; }
 
-.r1 {
-    width: 19.4%;
-    position: absolute;
-    height: 8.1%;
-    top: 0%;
-    left: 49.9%;
-    background-color: transparent;
-    outline: none;
-}
-
-.l2 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(60deg) translate(64%, 2.8%);
-}
-
-.r2 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(60deg) translate(156%, 2.8%);
-}
-
-.l3 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(120deg) translateX(175%) translateY(-374%);
-}
-
-.r3 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(120deg) translateX(268%) translateY(-375%);
-}
-
-.l4 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(180deg) translateX(66%) translateY(100%);
-}
-
-.r4 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(180deg) translateX(158%) translateY(100%);
-}
-
-.l5 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(240deg) translateX(-155.5%) translateY(-758%);
-}
-
-.r5 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(240deg) translateX(-63%) translateY(-758%);
-}
-
-.l6 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(300deg) translateX(-268%) translateY(-380%);
-}
-
-.r6 {
-    width: 20%;
-    position: absolute;
-    height: 8.2%;
-    top: 0%;
-    left: 62.43%;
-    background-color: transparent;
-    outline: none;
-    transform: rotate(300deg) translateX(-175%) translateY(-380%);
-    
-}
+.l1 { top: 0%; left: 30.789%; height: 8.1%; }
+.r1 { top: 0%; left: 49.9%; height: 8.1%; width: 19.5%; }
+.l2 { top: 0%; left: 62.43%; transform: rotate(60deg) translate(64%, 2.8%); }
+.r2 { top: 0%; left: 62.43%; transform: rotate(60deg) translate(156%, 2.8%); }
+.l3 { top: 0%; left: 62.43%; transform: rotate(120deg) translateX(175%) translateY(-374%); }
+.r3 { top: 0%; left: 62.43%; transform: rotate(120deg) translateX(268%) translateY(-375%); }
+.l4 { left: 62.43%; transform: rotate(180deg) translateX(66%) translateY(100%); }
+.r4 { left: 62.43%; transform: rotate(180deg) translateX(158%) translateY(100%); }
+.l5 { top: 0%; left: 62.43%; transform: rotate(240deg) translateX(-155.5%) translateY(-758%); }
+.r5 { top: 0%; left: 62.43%; transform: rotate(240deg) translateX(-63%) translateY(-758%); }
+.l6 { top: 0%; left: 62.43%; transform: rotate(300deg) translateX(-268%) translateY(-380%); }
+.r6 { top: 0%; left: 62.43%; transform: rotate(300deg) translateX(-175%) translateY(-380%); }
 
 .active {
     background-color: mediumspringgreen;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+/* Full Side Indicator */
+.hex-side {
+    position: absolute;
+    width: 10px;
+    height: 100px;
+    background-color: rgb(0, 187, 255);
+    height: 4%;
+    width: 50%;
+}
+
+.side1 { top: 0; left: 0%; transform: translate(50%, -128%); }
+.side2 { top: 0%; right: 0; width: 50%; transform: rotate(60deg) translate(45.75%, -95%); }
+.side3 { top: 0%; right: 0; transform: rotate(120deg) translate(96%, -930%); }
+.side4 { top: 0; left: 0%; transform:  rotate(180deg) translate(-50.25%, -1780%); }
+.side5 { top: 0%; left: 0; transform: rotate(240deg) translate(-95.8%, -930%) ; }
+.side6 { top: 0%; left: 0; transform: rotate(300deg) translate(-45%, -100%); }
