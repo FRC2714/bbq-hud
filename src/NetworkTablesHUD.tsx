@@ -18,18 +18,17 @@ const ReefHUD: React.FC = () => {
         });
 
         const stalkNumberTopic = ntcore.createTopic<number>('/SmartDashboard/Reef Stalk Number', NetworkTablesTypeInfos.kDouble);
-        const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Timer', NetworkTablesTypeInfos.kDouble);
+        const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Time', NetworkTablesTypeInfos.kDouble);
         // Subscribe to the topic and store the subscription IDs
         const subscriptionId1 = stalkNumberTopic.subscribe((value) => {
             console.log(`Got Elevator Setpoint Value: ${value}`);
             setCurrentStalkNumber(value);
         });
 
-        const subscriptionId2 = stalkNumberTopic.subscribe((value) => {
-            // while (true) {
-            console.log(`Time Left: ${value}`);
-            setMatchTimer(value);
-            // }
+        const subscriptionId2 = matchTimerTopic.subscribe((value) => {
+            while (true) {
+                setMatchTimer(value);
+            }
         });
         // Cleanup on component unmount
         return () => {
@@ -46,7 +45,7 @@ const ReefHUD: React.FC = () => {
             </p>
             <p className="current-stalk">Current Stalk: {currentStalkNumber ? currentStalkNumber : "No stalk identified"}</p>
             <h1 id='barge-text'>Barge</h1>
-            <Hexagon currentStalkNumber={currentStalkNumber} />
+            <Hexagon currentStalkNumber={currentStalkNumber} matchTimer={matchTimer} />
             <h1 id='driver-text'>Driver</h1>
         </>
     );

@@ -3,9 +3,10 @@ import './Hexagon.css';
 
 interface HexagonProps {
     currentStalkNumber: number | null;
+    matchTimer: number | null | undefined;
 }
 
-const Hexagon: React.FC<HexagonProps> = ({ currentStalkNumber }) => {
+const Hexagon: React.FC<HexagonProps> = ({ currentStalkNumber, matchTimer }) => {
 
     const stalkClasses = [
         'l1', 'r1', 'l2', 'r2',
