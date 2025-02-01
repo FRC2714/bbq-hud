@@ -5,6 +5,7 @@ import Hexagon from './Hexagon';
 
 const ReefHUD: React.FC = () => {
     const [currentStalkNumber, setCurrentStalkNumber] = useState<number | null>(null);
+    const [matchTimer, setMatchTimer] = useState<number | null>();
     const [connection, setConnection] = useState<string | null>("Unknown");
 
     useEffect(() => {
@@ -17,17 +18,24 @@ const ReefHUD: React.FC = () => {
         });
 
         const stalkNumberTopic = ntcore.createTopic<number>('/SmartDashboard/Reef Stalk Number', NetworkTablesTypeInfos.kDouble);
-
+        const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Timer', NetworkTablesTypeInfos.kDouble);
         // Subscribe to the topic and store the subscription IDs
         const subscriptionId1 = stalkNumberTopic.subscribe((value) => {
             console.log(`Got Elevator Setpoint Value: ${value}`);
             setCurrentStalkNumber(value);
         });
 
+        const subscriptionId2 = stalkNumberTopic.subscribe((value) => {
+            // while (true) {
+            console.log(`Time Left: ${value}`);
+            setMatchTimer(value);
+            // }
+        });
         // Cleanup on component unmount
         return () => {
             // Unsubscribe using the subscription IDs
             stalkNumberTopic.unsubscribe(subscriptionId1);
+            matchTimerTopic.unsubscribe(subscriptionId2);
         };
     }, []);
 
@@ -45,3 +53,4 @@ const ReefHUD: React.FC = () => {
 };
 
 export default ReefHUD;
+
