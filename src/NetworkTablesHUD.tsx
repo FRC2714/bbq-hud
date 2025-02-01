@@ -26,14 +26,16 @@ const ReefHUD: React.FC = () => {
         });
 
         const subscriptionId2 = stalkNumberTopic.subscribe((value) => {
+            // while (true) {
             console.log(`Time Left: ${value}`);
             setMatchTimer(value);
+            // }
         });
         // Cleanup on component unmount
         return () => {
             // Unsubscribe using the subscription IDs
             stalkNumberTopic.unsubscribe(subscriptionId1);
-            stalkNumberTopic.unsubscribe(subscriptionId2);
+            matchTimerTopic.unsubscribe(subscriptionId2);
         };
     }, []);
 
