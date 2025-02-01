@@ -5,8 +5,8 @@ import Hexagon from './Hexagon';
 
 const ReefHUD: React.FC = () => {
     const [currentStalkNumber, setCurrentStalkNumber] = useState<number | null>(null);
-    const [matchTimer, setMatchTimer] = useState<number | null>();
-    const [connection, setConnection] = useState<string | null>("Unknown");
+    const [matchTimer, setMatchTimer] = useState<number | null>(null);
+    const [connection, setConnection] = useState<string>("Unknown");
 
     useEffect(() => {
         // Initialize and connect to NetworkTables
@@ -19,20 +19,21 @@ const ReefHUD: React.FC = () => {
 
         const stalkNumberTopic = ntcore.createTopic<number>('/SmartDashboard/Reef Stalk Number', NetworkTablesTypeInfos.kDouble);
         const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Time', NetworkTablesTypeInfos.kDouble);
-        // Subscribe to the topic and store the subscription IDs
+
+        // Subscribe to stalk number updates
         const subscriptionId1 = stalkNumberTopic.subscribe((value) => {
-            console.log(`Got Elevator Setpoint Value: ${value}`);
+            console.log(`Got Stalk Number: ${value}`);
             setCurrentStalkNumber(value);
         });
 
+        // Subscribe to match timer updates directly
         const subscriptionId2 = matchTimerTopic.subscribe((value) => {
-            while (true) {
-                setMatchTimer(value);
-            }
+            console.log(`Got Match Time: ${value}`);
+            setMatchTimer(value);
         });
+
         // Cleanup on component unmount
         return () => {
-            // Unsubscribe using the subscription IDs
             stalkNumberTopic.unsubscribe(subscriptionId1);
             matchTimerTopic.unsubscribe(subscriptionId2);
         };
@@ -43,13 +44,16 @@ const ReefHUD: React.FC = () => {
             <p className={`connection-status ${connection === "Connected" ? 'connected' : 'disconnected'}`}>
                 Connection Status: {connection}
             </p>
-            <p className="current-stalk">Current Stalk: {currentStalkNumber ? currentStalkNumber : "No stalk identified"}</p>
+            <p className="current-stalk">Current Stalk: {currentStalkNumber ?? "No stalk identified"}</p>
+            <p className="current-matchtime">Time Left: {matchTimer !== null 
+                ? `${Math.floor(matchTimer / 60)}:${String(Math.floor(matchTimer % 60)).padStart(2, '0')}` 
+                : 'N/A'
+            } </p>
             <h1 id='barge-text'>Barge</h1>
-            <Hexagon currentStalkNumber={currentStalkNumber} matchTimer={matchTimer} />
+            <Hexagon currentStalkNumber={currentStalkNumber}/>
             <h1 id='driver-text'>Driver</h1>
         </>
     );
 };
 
 export default ReefHUD;
-

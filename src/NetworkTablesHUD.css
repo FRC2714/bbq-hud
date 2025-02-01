@@ -51,3 +51,9 @@
   position: absolute;
   font-family: Poppins;
 }
+
+.current-matchtime {
+  color: black;
+  font-weight: bold;
+  font-family: Poppins;
+}
