@@ -12,6 +12,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  position: relative;
+  height: 100vh; /* Optional: ensures body takes up the full viewport height */
+  margin: 0; /* Optional: reset margin to avoid potential gaps */
+}
+
 .connection-status {
   font-size: 1.2em;
   font-weight: bold;
@@ -36,20 +42,23 @@
   color: black;
   font-weight: 700;
   font-size: 3vw;
-  margin-left: 45%;
   top: -2%;
   position: absolute;
   font-family: Poppins;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #driver-text {
   color: black;
   font-weight: 700;
   font-size: 3rem;
-  margin-left: 45.5%;
   bottom: -3%;
   position: absolute;
   font-family: Poppins;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto; /* Optional: ensures it doesn't stretch */
 }
 
 .current-matchtime {
