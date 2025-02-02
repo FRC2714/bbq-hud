@@ -55,5 +55,26 @@
 .current-matchtime {
   color: black;
   font-weight: bold;
+  font-size: 3rem;
+  position: absolute;
+  top: 2%;
+  right: 2%;
   font-family: Poppins;
 }
+
+.autonMode {
+  background-color: aquamarine;
+}
+
+.teleopNormal {
+  background-color: orange;
+}
+
+.remainingTime-30s {
+  background-color: rgb(255, 255, 0);
+}
+
+.remainingTime-15s {
+  background-color: orangered;
+}
+

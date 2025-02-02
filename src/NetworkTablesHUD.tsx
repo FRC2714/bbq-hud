@@ -39,20 +39,43 @@ const ReefHUD: React.FC = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (matchTimer != null ) {
+            if (matchTimer >= 135) {
+                document.body.classList.add('autonMode');
+            }
+            else if (matchTimer < 135 && matchTimer > 30) {
+                document.body.classList.remove('autonMode');
+                document.body.classList.add('teleopNormal');
+            }
+            else if (matchTimer <= 30 && matchTimer > 15) {
+                document.body.classList.remove('teleopNormal');
+                document.body.classList.add('remainingTime-30s');
+            }
+            else if (matchTimer <= 15 ) {
+                document.body.classList.remove('remainingTime-30s');
+                document.body.classList.add('remainingTime-15s');
+            }
+            else if (matchTimer < 1) {
+                document.body.classList.remove('remainingTime-15s');
+            }
+        }
+    }, [matchTimer]);
+
     return (
-        <>
-            <p className={`connection-status ${connection === "Connected" ? 'connected' : 'disconnected'}`}>
+        <div>
+            <p className={`connection-status ${connection === "Connected" ? 'connected' : 'disconnected'}`}>                
                 Connection Status: {connection}
             </p>
             <p className="current-stalk">Current Stalk: {currentStalkNumber ?? "No stalk identified"}</p>
-            <p className="current-matchtime">Time Left: {matchTimer !== null 
+            <p className={`current-matchtime`}>Time Left: {matchTimer !== null 
                 ? `${Math.floor(matchTimer / 60)}:${String(Math.floor(matchTimer % 60)).padStart(2, '0')}` 
                 : 'N/A'
             } </p>
             <h1 id='barge-text'>Barge</h1>
             <Hexagon currentStalkNumber={currentStalkNumber}/>
             <h1 id='driver-text'>Driver</h1>
-        </>
+        </div>
     );
 };
 
