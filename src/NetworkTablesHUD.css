@@ -35,19 +35,67 @@
 #barge-text {
   color: black;
   font-weight: 700;
-  font-size: 3rem;
-  margin-left: 45%;
+  font-size: 3vw;
   top: -2%;
   position: absolute;
   font-family: Poppins;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #driver-text {
   color: black;
   font-weight: 700;
   font-size: 3rem;
-  margin-left: 45.5%;
-  bottom: 2%;
+  bottom: -3%;
   position: absolute;
   font-family: Poppins;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto; /* Optional: ensures it doesn't stretch */
+}
+
+.current-matchtime {
+  color: black;
+  font-weight: bold;
+  font-size: 3rem;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-family: Poppins;
+}
+
+.autonMode {
+  background-color: aquamarine;
+}
+
+.teleopNormal {
+  background-color: orange;
+}
+
+.remainingTime-30s {
+  background-color: rgb(255, 255, 0);
+}
+
+.remainingTime-15s {
+  background-color: orangered;
+}
+
+@media screen and (max-width: 1280px) {
+  #barge-text {
+    font-size: 4vw;
+    left: 58%;
+    top: -3%;
+  }
+
+  #driver-text {
+    font-size: 4vw;
+    left: 58%;
+    bottom: -15%;
+  }
+
+  .current-matchtime {
+    font-size: 2.5rem;
+  }
+  
 }
