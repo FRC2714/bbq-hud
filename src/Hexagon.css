@@ -66,3 +66,32 @@
 .side4 { top: 0; left: 0%; transform:  rotate(180deg) translate(-49.5%, -774.5%); }
 .side5 { top: 0%; left: 0; transform: rotate(240deg) translate(-90.9%, -362%) ; }
 .side6 { top: 0%; left: 0; transform: rotate(300deg) translate(-41%, 26%); }
+
+/* Media stuff to make look good on small displays */
+@media screen and (max-width: 1280px) {
+    .hexagon {
+        --b: 75px; /* adjust to control the border  */
+        height: 80%; /* adjust to control the size  */
+        aspect-ratio: 1/cos(30deg);
+        clip-path: 
+          polygon(0 50%,50% -50%,100% 50%,50% 150%,0 50%,
+          var(--b) 50%,
+          calc(25% + var(--b)*cos(60deg)) calc(100% - var(--b)*sin(60deg)),
+          calc(75% - var(--b)*cos(60deg)) calc(100% - var(--b)*sin(60deg)),
+          calc(100% - var(--b)) 50%,
+          calc(75% - var(--b)*cos(60deg)) calc(var(--b)*sin(60deg)),
+          calc(25% + var(--b)*cos(60deg)) calc(var(--b)*sin(60deg)),
+          var(--b) 50%);
+        background: #555;
+    }
+    .hex-side {
+        position: absolute;
+        --pl: 10%; /* control the shape (can be percentage) */
+        --pr: 10%;
+        height: 8%;
+        aspect-ratio: 3/2;
+        clip-path: polygon(var(--pl) 100%,calc(100% - var(--pr)) 100%,100% 0,0 0);
+        background:rgb(0, 187, 255);;
+        width: 50%;
+    }
+}

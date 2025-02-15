@@ -12,12 +12,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  position: relative;
-  height: 100vh; /* Optional: ensures body takes up the full viewport height */
-  margin: 0; /* Optional: reset margin to avoid potential gaps */
-}
-
 .connection-status {
   font-size: 1.2em;
   font-weight: bold;
@@ -87,3 +81,21 @@ body {
   background-color: orangered;
 }
 
+@media screen and (max-width: 1280px) {
+  #barge-text {
+    font-size: 4vw;
+    left: 58%;
+    top: -3%;
+  }
+
+  #driver-text {
+    font-size: 4vw;
+    left: 58%;
+    bottom: -15%;
+  }
+
+  .current-matchtime {
+    font-size: 2.5rem;
+  }
+  
+}
