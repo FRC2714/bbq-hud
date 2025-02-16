@@ -52,7 +52,7 @@
   font-family: Poppins;
   left: 50%;
   transform: translateX(-50%);
-  width: auto; /* Optional: ensures it doesn't stretch */
+  width: auto;
 }
 
 .current-matchtime {
@@ -60,8 +60,8 @@
   font-weight: bold;
   font-size: 3rem;
   position: absolute;
-  top: 2%;
-  right: 2%;
+  top: 10%;
+  left: 1%;
   font-family: Poppins;
 }
 
@@ -84,18 +84,17 @@
 @media screen and (max-width: 1280px) {
   #barge-text {
     font-size: 4vw;
-    left: 58%;
-    top: -3%;
+    left: 54%;
+    top: 13%;
   }
 
   #driver-text {
     font-size: 4vw;
-    left: 58%;
-    bottom: -15%;
+    left: 54%;
+    bottom: 13%;
   }
 
   .current-matchtime {
     font-size: 2.5rem;
   }
-  
 }
