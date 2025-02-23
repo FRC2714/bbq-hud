@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-color: #323232;
+}
+
 .connection-status {
   font-size: 1.2em;
   font-weight: bold;
@@ -27,13 +31,13 @@
 }
 
 .current-stalk {
-  color: black;
+  color: white;
   font-weight: bold;
   font-family: Poppins;
 }
 
 #barge-text {
-  color: black;
+  color: white;
   font-weight: 700;
   font-size: 3vw;
   top: -2%;
@@ -44,7 +48,7 @@
 }
 
 #driver-text {
-  color: black;
+  color: white;
   font-weight: 700;
   font-size: 3rem;
   bottom: -3%;
@@ -56,7 +60,7 @@
 }
 
 .current-matchtime {
-  color: black;
+  color: white;
   font-weight: bold;
   font-size: 3rem;
   position: absolute;

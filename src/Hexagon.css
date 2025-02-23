@@ -54,7 +54,7 @@
     height: 8%;
     aspect-ratio: 3/2;
     clip-path: polygon(var(--pl) 100%,calc(100% - var(--pr)) 100%,100% 0,0 0);
-    background:rgb(0, 187, 255);;
+    background:rgb(255, 98, 0);;
     width: 50%;
 }
 
@@ -178,7 +178,7 @@
         height: 12.4%;
         aspect-ratio: 3/2;
         clip-path: polygon(var(--pl) 100%,calc(100% - var(--pr)) 100%,100% 0,0 0);
-        background:rgb(0, 187, 255);;
+        background:rgb(0, 187, 255);
         width: 50%;
         transform: rotate(300deg) translate(-40%, 25%);
     }
@@ -191,5 +191,8 @@
     .r6 {
         top: 0%;
         transform: rotate(300deg) translateX(-145%) translateY(-1600%);
+    }
+    .hex-side {
+        background: #ff6200;
     }
 }
