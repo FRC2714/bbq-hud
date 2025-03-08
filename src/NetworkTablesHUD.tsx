@@ -7,6 +7,7 @@ const ReefHUD: React.FC = () => {
     const [currentStalkNumber, setCurrentStalkNumber] = useState<number | null>(null);
     const [matchTimer, setMatchTimer] = useState<number | null>(null);
     const [connection, setConnection] = useState<string>("Unknown");
+    const [dragonState, setDragonState] = useState<string | null>(null);
 
     useEffect(() => {
         // Initialize and connect to NetworkTables
@@ -19,6 +20,7 @@ const ReefHUD: React.FC = () => {
 
         const stalkNumberTopic = ntcore.createTopic<number>('/SmartDashboard/Reef Stalk Number', NetworkTablesTypeInfos.kDouble);
         const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Time', NetworkTablesTypeInfos.kDouble);
+        const dragonStateTopic = ntcore.createTopic<string>('/SmartDashboard/Dragon/State', NetworkTablesTypeInfos.kString);
 
         // Subscribe to stalk number updates
         const subscriptionId1 = stalkNumberTopic.subscribe((value) => {
@@ -32,12 +34,25 @@ const ReefHUD: React.FC = () => {
             setMatchTimer(value);
         });
 
+        // Subscribe to dragon state updates
+        const subscriptionId3 = dragonStateTopic.subscribe((value) => {
+            console.log(`Got Dragon State: ${value}`);
+            setDragonState(value);
+        });
+
         // Cleanup on component unmount
         return () => {
             stalkNumberTopic.unsubscribe(subscriptionId1);
             matchTimerTopic.unsubscribe(subscriptionId2);
+            dragonStateTopic.unsubscribe(subscriptionId3);
         };
     }, []);
+
+    useEffect(() => {
+        if (dragonState === "SCORE") {
+            setCurrentStalkNumber(null);
+        }
+    }, [dragonState]);
 
     // useEffect(() => {
     //     if (matchTimer != null ) {
