@@ -10,7 +10,7 @@ const ReefHUD: React.FC = () => {
 
     useEffect(() => {
         // Initialize and connect to NetworkTables
-        const ntcore = NetworkTables.getInstanceByTeam(2714);
+        const ntcore = NetworkTables.getInstanceByURI("10.27.14.2"); 
 
         ntcore.addRobotConnectionListener((connected) => {
             console.log(connected ? 'Connected to NetworkTables!' : 'Disconnected from NetworkTables.');
