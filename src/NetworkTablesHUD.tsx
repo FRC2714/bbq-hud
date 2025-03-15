@@ -19,7 +19,7 @@ const ReefHUD: React.FC = () => {
         });
 
         const stalkNumberTopic = ntcore.createTopic<number>('/SmartDashboard/Reef Stalk Number', NetworkTablesTypeInfos.kDouble);
-        const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Time', NetworkTablesTypeInfos.kDouble);
+        const matchTimerTopic = ntcore.createTopic<number>('/SmartDashboard/Match Info/Match Time', NetworkTablesTypeInfos.kDouble);
         const dragonStateTopic = ntcore.createTopic<string>('/SmartDashboard/Dragon/State', NetworkTablesTypeInfos.kString);
 
         // Subscribe to stalk number updates
@@ -54,28 +54,28 @@ const ReefHUD: React.FC = () => {
         }
     }, [dragonState]);
 
-    // useEffect(() => {
-    //     if (matchTimer != null ) {
-    //         if (matchTimer >= 135) {
-    //             document.body.classList.add('autonMode');
-    //         }
-    //         else if (matchTimer < 135 && matchTimer > 30) {
-    //             document.body.classList.remove('autonMode');
-    //             document.body.classList.add('teleopNormal');
-    //         }
-    //         else if (matchTimer <= 30 && matchTimer > 15) {
-    //             document.body.classList.remove('teleopNormal');
-    //             document.body.classList.add('remainingTime-30s');
-    //         }
-    //         else if (matchTimer <= 15 ) {
-    //             document.body.classList.remove('remainingTime-30s');
-    //             document.body.classList.add('remainingTime-15s');
-    //         }
-    //         else if (matchTimer < 1) {
-    //             document.body.classList.remove('remainingTime-15s');
-    //         }
-    //     }
-    // }, [matchTimer]);
+    useEffect(() => {
+        if (matchTimer != null ) {
+            if (matchTimer >= 135) {
+                document.body.classList.add('autonMode');
+            }
+            else if (matchTimer < 135 && matchTimer > 30) {
+                document.body.classList.remove('autonMode');
+                document.body.classList.add('teleopNormal');
+            }
+            else if (matchTimer <= 30 && matchTimer > 15) {
+                document.body.classList.remove('teleopNormal');
+                document.body.classList.add('remainingTime-30s');
+            }
+            else if (matchTimer <= 15 ) {
+                document.body.classList.remove('remainingTime-30s');
+                document.body.classList.add('remainingTime-15s');
+            }
+            else if (matchTimer < 1) {
+                document.body.classList.remove('remainingTime-15s');
+            }
+        }
+    }, [matchTimer]);
 
     return (
         <div>
