@@ -56,23 +56,28 @@ const ReefHUD: React.FC = () => {
 
     useEffect(() => {
         if (matchTimer != null ) {
-            if (matchTimer >= 135) {
-                document.body.classList.add('autonMode');
-            }
-            else if (matchTimer < 135 && matchTimer > 30) {
-                document.body.classList.remove('autonMode');
-                document.body.classList.add('teleopNormal');
-            }
-            else if (matchTimer <= 30 && matchTimer > 15) {
-                document.body.classList.remove('teleopNormal');
-                document.body.classList.add('remainingTime-30s');
-            }
-            else if (matchTimer <= 15 ) {
-                document.body.classList.remove('remainingTime-30s');
-                document.body.classList.add('remainingTime-15s');
-            }
-            else if (matchTimer < 1) {
-                document.body.classList.remove('remainingTime-15s');
+            if (matchTimer !== -1) {
+                if (matchTimer >= 135) {
+                    document.body.classList.add('autonMode');
+                }
+                else if (matchTimer < 135 && matchTimer > 30) {
+                    document.body.classList.remove('autonMode');
+                    document.body.classList.add('teleopNormal');
+                }
+                else if (matchTimer <= 30 && matchTimer > 15) {
+                    document.body.classList.remove('teleopNormal');
+                    document.body.classList.add('remainingTime-30s');
+                }
+                else if (matchTimer <= 15 ) {
+                    document.body.classList.remove('remainingTime-30s');
+                    document.body.classList.add('remainingTime-15s');
+                }
+                else if (matchTimer < 1) {
+                    document.body.classList.remove('remainingTime-15s');
+                }
+            } else {
+                document.body.classList.remove('autonMode', 'remainingTime-30s', 'remainingTime-15s')
+                document.body.classList.add('teleopNormal')
             }
         }
     }, [matchTimer]);
