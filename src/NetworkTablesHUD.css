@@ -82,7 +82,7 @@ body {
 }
 
 .remainingTime-15s {
-  background-color: orangered;
+  background-color: rgb(252, 111, 60);
 }
 
 @media screen and (max-width: 1280px) {
